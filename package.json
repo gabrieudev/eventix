@@ -36,6 +36,7 @@
 	},
 	"dependencies": {
 		"@eventix/env": "workspace:*",
+		"@sinclair/typebox": "^0.34.0",
 		"dotenv": "catalog:",
 		"zod": "catalog:"
 	},

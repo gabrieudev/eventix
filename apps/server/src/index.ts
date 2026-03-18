@@ -3,7 +3,7 @@ import { auth } from "@eventix/auth";
 import { env } from "@eventix/env/server";
 import { Elysia } from "elysia";
 
-const app = new Elysia()
+new Elysia()
 	.use(
 		cors({
 			origin: env.CORS_ORIGIN,

@@ -1,6 +1,6 @@
 import { expo } from "@better-auth/expo";
 import { db } from "@eventix/db";
-import * as schema from "@eventix/db/schema/auth";
+import * as schema from "@eventix/db/schema/index";
 import { env } from "@eventix/env/server";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
@@ -8,8 +8,9 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 export const auth = betterAuth({
 	database: drizzleAdapter(db, {
 		provider: "pg",
-
 		schema: schema,
+		usePlural: true,
+		camelCase: true,
 	}),
 	trustedOrigins: [
 		env.CORS_ORIGIN,
@@ -33,6 +34,9 @@ export const auth = betterAuth({
 			sameSite: "none",
 			secure: true,
 			httpOnly: true,
+		},
+		database: {
+			generateId: false,
 		},
 	},
 	plugins: [expo()],
