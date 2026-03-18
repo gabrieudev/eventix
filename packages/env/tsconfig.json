@@ -1,0 +1,3 @@
+{
+  "extends": "@eventix/config/tsconfig.base.json"
+}
