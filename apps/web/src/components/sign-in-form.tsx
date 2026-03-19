@@ -18,6 +18,13 @@ export default function SignInForm({
 	const router = useRouter();
 	const { isPending } = authClient.useSession();
 
+	const signInWithGoogle = async () => {
+		await authClient.signIn.social({
+			provider: "google",
+			callbackURL: "/",
+		});
+	};
+
 	const form = useForm({
 		defaultValues: {
 			email: "",
@@ -127,6 +134,12 @@ export default function SignInForm({
 					)}
 				</form.Subscribe>
 			</form>
+
+			<div>
+				<Button onClick={signInWithGoogle} variant="outline">
+					Sign in with Google
+				</Button>
+			</div>
 
 			<div className="mt-4 text-center">
 				<Button

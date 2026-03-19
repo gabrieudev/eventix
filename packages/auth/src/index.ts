@@ -12,6 +12,12 @@ export const auth = betterAuth({
 		usePlural: true,
 		camelCase: true,
 	}),
+	socialProviders: {
+		google: {
+			clientId: env.GOOGLE_CLIENT_ID as string,
+			clientSecret: env.GOOGLE_CLIENT_SECRET as string,
+		},
+	},
 	trustedOrigins: [
 		env.CORS_ORIGIN,
 		"eventix://",
